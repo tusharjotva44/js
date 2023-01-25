@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        width: 80%;
+        height: 470px;
+        margin: 50px auto;
+        border: 2px solid black;
+        position: relative;
+        overflow: hidden;
+    }
+    .main img {
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        transition: 2s;
+    }
+    .btn{
+        text-align: center;
+        margin-top: 3rem;
+    }
+    .btn button{
+        font-size: 20px;
+        padding: 0.5rem 2rem;
+    }
+</style>
+<body>
+    <div class="main">
+        <img class="slide" src="https://picsum.photos/id/237/1000/400" alt="">
+        <img class="slide" src="https://picsum.photos/id/232/1000/400" alt="">
+        <img class="slide" src="https://picsum.photos/id/231/1000/400" alt="">
+        <img class="slide" src="https://picsum.photos/id/239/1000/400" alt="">
+        <img class="slide" src="https://picsum.photos/id/212/1000/400" alt="">
+        <img class="slide" src="https://picsum.photos/id/235/1000/400" alt="">
+    </div>
+    <div class="btn">
+        <button onclick="goPrev()">
+            Prev
+        </button>
+        <button onclick="goNext()">
+            Next
+        </button>
+    </div>
+
+
+
+    <script>
+        const slides = document.querySelectorAll(".slide")
+        var counter = 0;
+        // console.log(slides);
+        slides.forEach(
+            (slide, index) => {
+                slide.style.left =`${index *100}%`
+            }
+        )
+        const goPrev = () => {
+                counter--
+                slideImage()
+            }
+            
+            const goNext = () => {
+                counter++
+                slideImage()
+            }
+
+
+        const slideImage = () => {
+            slides.forEach(
+                (slide) => {
+                    slide.style.transform =`translateX(-${counter*100}%)`
+                }
+            )
+        } 
+
+
+    </script>
+</body>
+</html>
